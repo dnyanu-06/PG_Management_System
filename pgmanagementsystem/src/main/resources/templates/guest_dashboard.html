@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PG Manager Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .hidden { display: none; }
+    </style>
+</head>
+<body class="bg-gray-100">
+    
+    <div class="flex h-screen">
+        <!-- Sidebar -->
+        <nav class="w-64 bg-pink-600 text-white p-4 space-y-4">
+            <h1 class="text-2xl font-bold">PG Manager</h1>
+            <ul>
+                <li><a href="#" class="block p-2 hover:bg-pink-700" onclick="showContent('dashboard')">Dashboard</a></li>
+                <li><a href="#" class="block p-2 hover:bg-pink-700" onclick="showContent('about')">About Us</a></li>
+                <li><a href="#" class="block p-2 hover:bg-pink-700" onclick="showContent('contact')">Contact Us</a></li>
+                <li><a href="#" class="block p-2 hover:bg-pink-700" onclick="showContent('profile')">Profile</a></li>
+                            <button onclick="toggleBookingDropdown()" class="block p-2 w-full text-left hover:bg-pink-700 rounded">
+                Booking ▼
+            </button></li>
+
+            <!-- Dropdown Menu -->
+            <ul id="bookingDropdown" class="hidden bg-pink-700 rounded-lg mt-1 overflow-hidden">
+                <li><a href="/approvedbooking" class="block px-4 py-2 hover:bg-pink-600">Approved Booking</a></li>
+                <li><a href="/rejectedbooking" class="block px-4 py-2 hover:bg-pink-600">Rejected Booking</a></li>
+                <li><a href="/pendingbooking" class="block px-4 py-2 hover:bg-pink-600">Pending Booking</a></li>
+            </ul>
+        
+            </ul>
+        </nav>
+        <script>
+    function toggleBookingDropdown() {
+        document.getElementById("bookingDropdown").classList.toggle("hidden");
+    }
+</script>
+        
+        <!-- Main Content -->
+        <div class="flex-1 p-10">
+            <div id="dashboard" class="content">
+                <h2 class="text-3xl font-bold text-gray-700">Welcome, Guest!</h2>
+                <p class="text-gray-600 mt-2">Manage your PG with ease using our system.</p>
+            </div>
+            
+           <section id="about" class="py-20 bg-gray-100 content hidden">
+    <div class="container mx-auto px-6 md:px-16 flex flex-col-reverse md:flex-row items-center gap-16">
+        
+       <!-- Left: Image -->
+        <div class="md:w-2/5 flex justify-center">
+            <img src="https://png.pngtree.com/thumb_back/fh260/background/20220523/pngtree-two-floors-of-hotel-or-hostel-image_1387690.jpg" 
+                 alt="About Us" 
+                 class="w-full max-w-2xl h-auto md:h-[350px] rounded-2xl shadow-xl border-4 border-pink-400 p-3 transition-all hover:shadow-2xl">
+        </div>
+
+        <!-- Right: Content -->
+        <div class="md:w-3/5 text-center md:text-left space-y-6">
+            <h2 class="text-5xl font-extrabold text-gray-700">
+                <span class="text-gray-500">ABOUT</span> <span class="text-red-500">US</span>
+            </h2>
+            <div class="w-20 h-1 bg-red-500 mx-auto md:mx-0"></div>
+
+            <p class="text-lg text-gray-600 leading-relaxed">
+                Managing a PG property can be overwhelming. That’s why we created 
+                <span class="font-semibold text-pink-500">PG Manager</span> – an all-in-one solution 
+                designed to simplify your daily operations, enhance tenant experience, 
+                and keep your business running smoothly.
+            </p>
+
+            <p class="text-lg text-gray-600">
+                Our platform provides seamless automated rent collection, 
+                maintenance tracking, and tenant management, ensuring 
+                efficiency and peace of mind.
+            </p>
+
+            <p class="text-lg text-gray-600">
+                Whether you manage a single property or multiple PGs, our smart tools 
+                help reduce workload, improve transparency, and enhance profitability.
+            </p>
+
+            <p class="text-lg text-gray-600">
+                We are dedicated to helping you grow your business by minimizing manual tasks 
+                and allowing you to focus on what truly matters—your tenants' satisfaction.
+            </p>
+
+            <div class="mt-8">
+                <a href="#services" class="px-8 py-3 bg-pink-600 text-white text-lg font-semibold rounded-full 
+                                           shadow-lg hover:bg-pink-800 transition-all">
+                    Explore Our Services
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="contact" class="py-16 bg-white content hidden">
+         <h2 class="text-3xl font-bold text-gray-700 text-center mb-6">
+                <span class="text-gray-500">CONTACT</span> <span class="text-red-500">US</span>
+            </h2>
+            <p class="text-gray-600 text-center mb-6">
+                Have questions? Reach out to us and we'll respond as soon as possible.
+            </p>
+
+        <div class="max-w-2xl mx-auto bg-gray-100 p-8 shadow-lg rounded-lg">
+<form id="contactForm">
+     <div>
+                    <label for="name" class="block text-gray-700 font-medium">Your Name</label>
+                    <input type="text" id="name" name="name" required
+                        class="w-full mt-2 px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-red-500 focus:border-red-500 outline-none transition duration-300">
+                </div>
+
+                <div>
+                    <label for="email" class="block text-gray-700 font-medium">Your Email</label>
+                    <input type="email" id="email" name="email" required
+                        class="w-full mt-2 px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-red-500 focus:border-red-500 outline-none transition duration-300">
+                </div>
+
+                <div>
+                    <label for="message" class="block text-gray-700 font-medium">Your Message</label>
+                    <textarea id="message" name="message" rows="4" required
+                        class="w-full mt-2 px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-red-500 focus:border-red-500 outline-none transition duration-300"></textarea>
+                </div>
+
+                <button type="submit"
+                    class="w-full bg-pink-600 hover:bg-pink-800 text-white font-semibold py-3 rounded-md shadow-md transition duration-300 transform hover:scale-105">
+                    Send Message
+                </button>
+            </form>
+        </div>
+    </div>
+   </section>
+    
+
+<script>
+document.getElementById("contactForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+    
+    const formData = {
+        name: document.getElementById("name").value,
+        email: document.getElementById("email").value,
+        message: document.getElementById("message").value
+    };
+
+    fetch("http://localhost:8080/api/contact", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(formData)
+    })
+    .then(response => response.text())
+    .then(data => alert(data))
+    .catch(error => console.error("Error:", error));
+});
+</script>
+            
+<section id="profile" class="content hidden">
+    <h2 class="text-3xl font-bold text-gray-700">Your Profile</h2>
+    <p class="text-gray-600 mt-2">Manage your personal details, update preferences, and view activity logs.</p>
+    
+    <a href="/guest" class="mt-4 inline-block px-4 py-2 bg-blue-500 text-white rounded-lg shadow-md hover:bg-blue-700">Edit Profile</a>
+</section>
+            
+            <div id="booking" class="content hidden">
+                <h2 class="text-3xl font-bold text-gray-700">Booking</h2>
+                <p class="text-gray-600 mt-2">Check the status of your bookings: Pending, Approved, or Rejected.</p>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function showContent(section) {
+            document.querySelectorAll('.content').forEach(div => div.classList.add('hidden'));
+            document.getElementById(section).classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>

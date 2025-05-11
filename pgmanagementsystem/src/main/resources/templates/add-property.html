@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add Property</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+</head>
+<body class="bg-gray-100">
+
+    <div class="max-w-lg mx-auto mt-10 bg-white p-6 shadow-lg rounded">
+        <h2 class="text-2xl font-bold mb-4 text-center">Add Property</h2>
+
+        <form th:action="@{/owner/addProperty}" method="post" enctype="multipart/form-data">
+            <input type="text" name="name" placeholder="Property Name" required class="w-full p-2 border rounded">
+            <input type="text" name="area" placeholder="Area" required class="w-full p-2 border rounded">
+            <input type="text" name="city" placeholder="City" required class="w-full p-2 border rounded">
+            <input type="number" name="price" placeholder="Price" required class="w-full p-2 border rounded">
+            <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded w-full">Add Property</button>
+        </form>
+    </div>
+
+</body>
+</html>

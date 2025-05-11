@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System Analytics</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f7fc;
+            padding: 30px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 30px;
+        }
+
+        .stat-card {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 30%;
+            text-align: center;
+        }
+
+        .stat-card h3 {
+            color: #4CAF50;
+        }
+
+        .stat-card p {
+            font-size: 24px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        .chart-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+            gap: 30px;
+        }
+
+        .chart-box {
+            width: 48%;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 14px;
+            color: #888;
+        }
+
+        .back-link {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            padding: 12px 24px;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .back-link:hover {
+            background-color: #45a049;
+            transform: translateY(-3px);
+        }
+
+        .back-link:active {
+            background-color: #388E3C;
+            transform: translateY(0);
+        }
+
+        .back-link:focus {
+            outline: none;
+            box-shadow: 0 0 0 4px rgba(76, 175, 80, 0.3);
+        }
+
+    </style>
+</head>
+<body>
+    <a href="/admin/dashboard" class="back-link">Back to Admin Dashboard</a>
+    <h2>System Analytics</h2>
+
+    <div class="container">
+        <div class="stat-card">
+            <h3>Total Properties</h3>
+            <p>120</p>
+        </div>
+
+        <div class="stat-card">
+            <h3>Total Users</h3>
+            <p>450</p>
+        </div>
+
+        <div class="stat-card">
+            <h3>Active Listings</h3>
+            <p>80</p>
+        </div>
+    </div>
+
+    <div class="chart-container">
+        <div class="chart-box">
+            <h3>System Statistics (Bar Chart)</h3>
+            <canvas id="barChart"></canvas>
+        </div>
+
+        <div class="chart-box">
+            <h3>Active Listings over Time (Line Chart)</h3>
+            <canvas id="lineChart"></canvas>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 PG Management System</p>
+    </footer>
+
+    <script>
+        // Bar Chart for System Statistics
+        var ctxBar = document.getElementById('barChart').getContext('2d');
+        var barChart = new Chart(ctxBar, {
+            type: 'bar',
+            data: {
+                labels: ['Total Properties', 'Total Users', 'Active Listings'],
+                datasets: [{
+                    label: 'System Statistics',
+                    data: [120, 450, 80], // Replace with Thymeleaf data later
+                    backgroundColor: ['#4CAF50', '#2196F3', '#FF9800'],
+                    borderColor: ['#388E3C', '#1976D2', '#F57C00'],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        // Line Chart for Active Listings over Time
+        var ctxLine = document.getElementById('lineChart').getContext('2d');
+        var lineChart = new Chart(ctxLine, {
+            type: 'line',
+            data: {
+                labels: ['January', 'February', 'March', 'April', 'May'], // Dummy months for X-axis
+                datasets: [{
+                    label: 'Active Listings',
+                    data: [50, 60, 70, 80, 90], // Replace with actual dynamic data for active listings over time
+                    fill: false,
+                    borderColor: '#FF9800',
+                    tension: 0.1
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

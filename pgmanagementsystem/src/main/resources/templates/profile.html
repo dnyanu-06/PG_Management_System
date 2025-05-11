@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Profile Details</title>
+    <style>
+        /* General Styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            padding: 20px;
+        }
+
+        /* Form Container */
+        .form-container {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 450px;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        h2 {
+            text-align: center;
+            color: #e60073;
+            margin-bottom: 15px;
+            font-size: 24px;
+        }
+
+        label {
+            font-size: 14px;
+            font-weight: 600;
+            color: #444;
+            display: block;
+            margin-top: 12px;
+        }
+
+        /* Input Fields */
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            margin-top: 5px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        input:focus, textarea:focus {
+            border: 1px solid #e60073;
+            outline: none;
+            box-shadow: 0 0 8px rgba(230, 0, 115, 0.2);
+        }
+
+        textarea {
+            resize: none;
+            height: 80px;
+        }
+
+        /* File Input */
+        input[type="file"] {
+            border: none;
+            padding: 5px;
+        }
+
+        /* Submit Button */
+        button {
+            width: 100%;
+            background: #e60073;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: 0.3s ease;
+            margin-top: 15px;
+        }
+
+        button:hover {
+            background: #c70064;
+            transform: scale(1.05);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 480px) {
+            .form-container {
+                padding: 20px;
+                max-width: 100%;
+            }
+        }
+
+        /* Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+
+<body>
+
+    <form action="/submit" method="post" class="form-container">
+        <h2>Add Profile Details</h2>
+        <label for="name">Enter Full Name:</label>
+        <input type="text" name="name" placeholder="Enter your full name" required>
+        
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" placeholder="Enter your age" required>
+        
+        <label for="profession">Profession:</label>
+        <input type="text" id="profession" name="profession" placeholder="Enter your profession" required>
+        
+        <label for="address">Permanent Address:</label>
+        <textarea id="address" name="address" placeholder="Enter your permanent address" required></textarea>
+        
+        <label for="photo">Select Government Proof ID:</label>
+        <input type="file" id="photo" name="photo" accept=".jpg, .jpeg, .png" required>
+            
+        <button type="submit">Submit</button>
+    </form>
+
+</body>
+</html>

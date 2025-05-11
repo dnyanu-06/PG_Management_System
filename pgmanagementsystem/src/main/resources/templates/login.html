@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #fbc2eb, #a6c1ee); /* Soft gradient */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+/* Glassmorphism Form Container */
+.form-container {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 400px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+}
+
+/* Hover Effect */
+.form-container:hover {
+    transform: scale(1.03);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+}
+
+/* Heading */
+h2 {
+    color: #ff007f;
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Input Fields */
+input {
+    width: calc(100% - 20px);
+    padding: 12px 15px;
+    margin: 10px 10px;
+    border: 1px solid black; /* Thin black border */
+    border-radius: 8px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    background: white;
+    color: #333;
+    outline: none;
+}
+
+/* Focus Effect */
+input:focus {
+    border-color: #ff007f;
+    background: rgba(255, 255, 255, 0.8);
+}
+
+/* Placeholder Styling */
+input::placeholder {
+    color: rgba(0, 0, 0, 0.5);
+}
+
+/* Submit Button */
+button {
+    width: calc(100% - 20px);
+    background: linear-gradient(135deg, #ff007f, #ff4d79);
+    color: white;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+    margin: 15px 10px;
+}
+
+/* Button Hover Effect */
+button:hover {
+    background: linear-gradient(135deg, #ff4d79, #ff007f);
+    transform: scale(1.05);
+}
+    </style>
+</head>
+
+<body>
+
+    <form action="/login" method="post" class="form-container">
+        <h2>Login</h2>
+        <input type="email" name="email" placeholder="Email" required>
+        <input type="password" name="password" placeholder="Password" required>
+        
+        <!-- Display error message inside the form -->
+            <div th:if="${error}" class="error-message">
+                <p th:text="${error}"></p>
+            </div>
+        <button type="submit">Login</button>
+        
+    </form>
+
+</body>
+</html>

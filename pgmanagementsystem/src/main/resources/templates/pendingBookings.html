@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Pending Bookings</title>
+</head>
+<body>
+    <h1>Pending Bookings</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Booking ID</th>
+                <th>Property</th>
+                <th>Name</th>
+                <th>Location</th>
+                <th>Owner</th>
+                <th>Customer</th>
+                <th>Room Type</th>
+                <th>Room No</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Total Stay</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="booking : ${pending_bookings}">
+                <td th:text="${booking.bookingId}"></td>
+                <td th:text="${booking.property}"></td>
+                <td th:text="${booking.name}"></td>
+                <td th:text="${booking.location}"></td>
+                <td th:text="${booking.owner}"></td>
+                <td th:text="${booking.customer}"></td>
+                <td th:text="${booking.roomType}"></td>
+                <td th:text="${booking.roomNo}"></td>
+                <td th:text="${booking.startDate}"></td>
+                <td th:text="${booking.endDate}"></td>
+                <td th:text="${booking.totalStay}"></td>
+                <td th:text="${booking.action}"></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
